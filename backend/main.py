@@ -1,9 +1,17 @@
+import logging
 import os
 import shutil
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from core_logic import process_document, query_document
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:\t  %(message)s",
+)
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -41,6 +49,7 @@ async def upload_document(file: UploadFile = File(...)):
         return {"message": "File processed successfully", "collection_name": collection_name}
 
     except Exception as e:
+        logger.error(f"Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
     finally:
         if os.path.exists(file_path):
@@ -53,4 +62,5 @@ async def handle_query(request: QueryRequest):
         answer = query_document(request.question, request.collection_name)
         return {"answer": answer}
     except Exception as e:
+        logger.error(f"Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
