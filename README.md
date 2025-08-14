@@ -2,12 +2,6 @@
 
 **Parsec AI** is an intelligent document query system to chat with your PDFs. It's built with a **FastAPI** backend, **Streamlit** frontend and a **Retrieval-Augmented Generation (RAG)** pipeline.
 
-## About The Project
-
-Parsec AI allows you to have a conversation with your files. Simply upload a PDF, such as a marketing brief, a research paper or a legal document, and ask questions in natural language to get instant, context-aware answers.
-
-This project demonstrates a modern, full-stack approach to building AI applications. It features a decoupled architecture with a robust backend handling the core AI logic and a user-friendly frontend for the chat interface.
-
 ## Key Features
 
 - **PDF Upload:** Easily upload and process PDF documents.
