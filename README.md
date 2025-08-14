@@ -4,7 +4,7 @@
 
 ## About The Project
 
-Parse documents at light speed. Parsec AI allows you to have a conversation with your files. Simply upload a PDF, such as a marketing brief, a research paper or a legal document, and ask questions in natural language to get instant, context-aware answers.
+Parsec AI allows you to have a conversation with your files. Simply upload a PDF, such as a marketing brief, a research paper or a legal document, and ask questions in natural language to get instant, context-aware answers.
 
 This project demonstrates a modern, full-stack approach to building AI applications. It features a decoupled architecture with a robust backend handling the core AI logic and a user-friendly frontend for the chat interface.
 
