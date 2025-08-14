@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 python-dotenv
 langchain
+langchain-community
 langchain-openai
-chromadb
 pypdf
 python-multipart

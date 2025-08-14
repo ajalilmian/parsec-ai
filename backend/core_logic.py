@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -25,7 +26,7 @@ def process_document(file_path: str):
         chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(documents)
 
-    collection_name = os.path.splitext(os.path.basename(file_path))[0]
+    collection_name = datetime.now().strftime("%Y%m%d%H%M%S")
     vectorstore = Chroma.from_documents(
         documents=splits,
         embedding=OpenAIEmbeddings(),
