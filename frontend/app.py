@@ -12,7 +12,11 @@ st.set_page_config(
 
 st.title("Parsec AI")
 st.markdown("""
-Parse documents at light speed! Parsec AI allows you to have a conversation with your files. Simply upload a PDF, such as a marketing brief, a research paper or a legal document, and ask questions in natural language to get instant, context-aware answers.
+Parsec AI allows you to have a conversation with your files. Simply upload a PDF, such as a marketing brief, a research paper or a legal document, and ask questions in natural language to get instant, context-aware answers.
+""")
+
+st.markdown("""
+*Ask about KPIs, target audience, campaign goals, and more!*
 """)
 
 if 'collection_name' not in st.session_state:
@@ -21,7 +25,7 @@ if 'messages' not in st.session_state:
     st.session_state.messages = []
 
 with st.sidebar:
-    st.header("Upload Your Documents")
+    st.header("Upload Your Document")
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
     if uploaded_file is not None:
@@ -41,16 +45,6 @@ with st.sidebar:
                         st.error(f"Error: {response.json().get('detail')}")
                 except requests.exceptions.RequestException as e:
                     st.error(f"Connection error: {e}")
-
-st.header("1. Upload Your Brief")
-st.markdown("""
-Upload a PDF of your marketing brief, and I'll help you find the answers you need.
-""")
-
-st.header("2. Ask Your Questions")
-st.markdown("""
-Ask about KPIs, target audience, campaign goals, and more!
-""")
 
 if st.session_state.collection_name:
     for message in st.session_state.messages:
